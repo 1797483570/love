@@ -1,0 +1,285 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #ffb6c1 0%, #ffc0cb 50%, #ffb6c1 100%);
+    background-attachment: fixed;
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* 容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 头部 */
+.header {
+    text-align: center;
+    margin-bottom: 40px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: #ff1493;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #ff69b4;
+    font-style: italic;
+}
+
+/* 主要内容 */
+.main-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    animation: fadeIn 1s ease-out 0.3s both;
+}
+
+/* 告白信 */
+.love-letter {
+    margin-bottom: 40px;
+    background: linear-gradient(135deg, #fff0f5 0%, #ffe4e1 100%);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid #ffb6c1;
+    box-shadow: 0 5px 15px rgba(255, 182, 193, 0.2);
+}
+
+.letter-content {
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.letter-content p {
+    margin-bottom: 15px;
+    line-height: 1.8;
+}
+
+.letter-content p:first-child {
+    font-size: 1.3rem;
+    color: #ff1493;
+    font-weight: bold;
+}
+
+.signature {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #ff69b4;
+    font-weight: bold;
+}
+
+/* 图片展示 */
+.photo-gallery {
+    margin-bottom: 30px;
+}
+
+.gallery-title {
+    text-align: center;
+    color: #ff1493;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+}
+
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+}
+
+.photo-item {
+    background: white;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.photo-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.4);
+}
+
+.gallery-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid #ffb6c1;
+    transition: all 0.3s ease;
+}
+
+.gallery-photo:hover {
+    transform: scale(1.02);
+    border-color: #ff69b4;
+}
+
+/* 爱心动画容器 */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 100;
+}
+
+/* 爱心样式 */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff1493;
+    transform: rotate(45deg);
+    animation: floatUp 3s ease-out forwards;
+    opacity: 0.8;
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #ff1493;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -10px;
+}
+
+/* 底部 */
+.footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #ff69b4;
+    font-size: 1.1rem;
+    animation: fadeIn 1s ease-out 0.7s both;
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(100vh) rotate(45deg) scale(0);
+        opacity: 1;
+    }
+    10% {
+        transform: translateY(90vh) rotate(45deg) scale(1);
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-100px) rotate(45deg) scale(1);
+        opacity: 0;
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 2rem;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .gallery-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-photo {
+        height: 180px;
+    }
+}
+
+/* 添加一些装饰元素 */
+.main-content::before {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 2rem;
+    animation: sparkle 2s infinite;
+}
+
+.main-content::after {
+    content: '✨';
+    position: absolute;
+    top: -10px;
+    right: 20px;
+    font-size: 2rem;
+    animation: sparkle 2s infinite 0.5s;
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.7;
+    }
+}
